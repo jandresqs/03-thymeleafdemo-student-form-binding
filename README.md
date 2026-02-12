@@ -155,7 +155,7 @@ Favorite Operating Systems:
 ```mermaid
 
 graph TD
-    A[application.properties] -->|@Value| B(StudentController)
+    A[application.properties] -->|"@"Value| B(StudentController)
     B -->|model.addAttribute| C[countries]
     B -->|model.addAttribute| D[languages]
     B -->|model.addAttribute| E[operatingSystems]
@@ -165,7 +165,7 @@ graph TD
     E --> G
     G -->|th:each generates| H[Dynamic dropdown / radios / checkboxes]
     H -->|User submits POST| I[/processStudentForm]
-    I -->|@ModelAttribute binds| J[Student object populated]
+    I -->|"@"ModelAttribute binds| J[Student object populated]
     J -->|auto-added to model| K[student-confirmation.html]
     K -->|th:each displays| L[List of favorite systems]
 
