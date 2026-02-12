@@ -153,16 +153,22 @@ Favorite Operating Systems:
 ## 🔄 Data Flow Diagram
 
 ```mermaid
+
 graph TD
     A[application.properties] -->|@Value| B(StudentController)
-    B -->|model.addAttribute| C[countries, languages, operatingSystems]
-    D[Student object] -->|model.addAttribute| C
-    C -->|renders| E[student-form.html]
-    E -->|th:each generates| F[Dynamic dropdown / radios / checkboxes]
-    F -->|User submits POST| G[/processStudentForm]
-    G -->|@ModelAttribute binds| H[Student object populated]
-    H -->|auto-added to model| I[student-confirmation.html]
-    I -->|th:each displays| J[List of favorite systems]
+    B -->|model.addAttribute| C[countries]
+    B -->|model.addAttribute| D[languages]
+    B -->|model.addAttribute| E[operatingSystems]
+    F[Student object] -->|model.addAttribute| G(student-form.html)
+    C --> G
+    D --> G
+    E --> G
+    G -->|th:each generates| H[Dynamic dropdown / radios / checkboxes]
+    H -->|User submits POST| I[/processStudentForm]
+    I -->|@ModelAttribute binds| J[Student object populated]
+    J -->|auto-added to model| K[student-confirmation.html]
+    K -->|th:each displays| L[List of favorite systems]
+
 ```
 
 ---
