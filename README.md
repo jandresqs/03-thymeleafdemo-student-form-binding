@@ -164,7 +164,7 @@ graph TD
     D --> G
     E --> G
     G -->|th:each generates| H[Dynamic dropdown / radios / checkboxes]
-    H -->|User submits POST| I[/processStudentForm]
+    H -->|User submits POST| I["/"processStudentForm]
     I -->|"@"ModelAttribute binds| J[Student object populated]
     J -->|auto-added to model| K[student-confirmation.html]
     K -->|th:each displays| L[List of favorite systems]
